@@ -43,7 +43,7 @@ const Savednews: React.FC = () => {
 
   return (
     <Container>
-    {newsData.map((article, index) => (
+    {newsData?.map((article, index) => (
       <Row key={index} className="px-4 my-5">
         <Col sm={7}>
           <Image src={article.urlToImage || defaultImage} fluid rounded className="" />

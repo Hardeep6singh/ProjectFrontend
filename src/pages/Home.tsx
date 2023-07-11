@@ -44,7 +44,7 @@ console.log(countryCodeContext)
     savedAt: currentDate.toISOString()
   };
   console.log(articleWithDate);
-    fetch('http://localhost:8000/api/auth/savenews', {
+    fetch('https://reactbackend-iaxc.onrender.com/api/auth/savenews', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ console.log(countryCodeContext)
   return (
     <>
       <Container>
-        {newsData.map((article, index) => (
+        {newsData?.map((article, index) => (
           <Row key={index} className="px-4 my-5">
             <Col sm={7}>
               <Image src={article.urlToImage || defaultImage} fluid rounded className="" />

@@ -95,7 +95,7 @@ const Navigation = () => {
             </Nav.Link>
             {(location.pathname === '/home' || location.pathname === '/') && (
               <NavDropdown title="Country" id="basic-nav-dropdown">
-                {Object.entries(countryCodes).map(([country, code]) => (
+                {Object.entries(countryCodes)?.map(([country, code]) => (
                   <NavDropdown.Item key={code} onClick={() => handleCountryClick(code)}>
                     {country}
                   </NavDropdown.Item>
