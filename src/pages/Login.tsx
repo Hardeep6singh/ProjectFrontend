@@ -43,7 +43,7 @@ const Login = () => {
         navigate('/Savednews')
       } 
       catch(error:any) {
-        console.error('Error:', error);
+        alert(error.response.data);
       };
   };
     return (
