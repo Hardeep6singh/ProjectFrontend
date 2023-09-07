@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CountryCodeContext from '../context/CountryCodeContext';
-
+import axios from 'axios';
 
 interface Article {
     source: {
@@ -30,10 +30,16 @@ const News: React.FC = () => {
   useEffect(() => {
     if (countryCodeContext?.countryCode) 
     {
-    fetch(`https://newsapi.org/v2/top-headlines?country=${countryCodeContext.countryCode}&apiKey=${apiKey}`)
-      .then(response => response.json())
-      .then(data => setNewsData(data.articles))
-      .catch(error => console.log(error));
+  
+      axios.get(`https://newsapi.org/v2/top-headlines?country=${countryCodeContext.countryCode}&apiKey=${apiKey}`)
+        .then(response => {
+          const data = response.data;
+          setNewsData(data.articles);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      
     }
   },[countryCodeContext]);
 console.log(countryCodeContext)

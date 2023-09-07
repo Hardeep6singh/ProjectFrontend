@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 
+
 const Register = () => {
     const [formData, setformData] = useState({
       firstName:'',
@@ -41,11 +42,29 @@ const Register = () => {
         data,
         config
       );
-     console.log(response.data)
-    }
+        // Check if the registration was successful (you might need to adjust this condition based on your API response)
+        if (response.status === 200)
+        {
+          alert('Registration successful!'); // Display a success message
+          // Clear the form fields by resetting the formData state
+          setformData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          contact: '',
+          password: '',
+        });
+
+        }
+        else
+        {
+        //  if the server returns an error status code (e.g., 400, 500), you can handle it here.
+          alert('Registration failed. Please try again.');
+         }
+      }
     
       catch(error:any) {
-        console.error('Error:', error);
+        alert('Error: ' + error.response.data.message);
       };
   };
     
