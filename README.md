@@ -1,6 +1,13 @@
                                     React Project :  MyNewsHub
 
-Deployment Link :-  
+Deployment Link :- https://my-news-hub.vercel.app/login
+login details:
+email    : dummy@gmail.com
+password : Dummy@123
+We will not be able to see live news on home page as the news API for production version is not free for developers so we can see only saved news
+after logging to MyNewsHub account with above credentials or by registering new user.
+
+
 Project Description :-
 The News Aggregation and User Account Management System is a web application developed using
 the React framework. The primary goal of this project is to fetch news articles from an external API
